@@ -1,0 +1,73 @@
+<div class="row" id="scrLog">
+  <div class="col-3"></div>
+  <div class="col-lg-6">
+    <div class="card no-shadow back-trasparent" id="alllogin">
+
+      <img class="card-img-top animated fadeIn" src="img/loginHeader.svg" alt="Iniciar sesión">
+
+      <!-- ESPERA DE DATOS -->
+      <div class="card-body animated fadeIn d-none" id="loginWait"></div>
+
+      <!-- LOGUEO -->
+      <div class="card-body d-none animated fadeIn" id="loginData">
+        <div class="text-center p-2">
+          <h5 class="card-title font-weight-bold textbrow">Inicie sesión</h5>
+        </div>
+        <div class="md-form padding-margin-bottom-10">
+          <label for="logUser">Nombre de usuario</label>
+          <input type="text" id="logUser" class="form-control" tabindex="1" maxlength="30" pattern="^[A-Za-z0-9_]{1,30}$" placeholder=" ">
+        </div>
+        <div class="md-form">
+          <label for="logPassword">Contraseña</label>
+          <input type="password" id="logPassword" class="form-control" tabindex="2" maxlength="30" onkeypress="return checkEnter(event, this.id)" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$" placeholder=" ">
+        </div>
+        <div class="md-checkbox">
+          <input id="autologin" type="checkbox">
+          <label class="blue-grey-text" for="autologin">Iniciar sesión automáticamente</label>
+        </div>
+        <div class="text-center p-2">
+          <button type="button" class="btn grey darken-4 less-padding btnConversor btn-block waves-effect waves-light" onclick="loginApp()" id="btnLogin">
+            Iniciar sesión
+          </button>
+        </div>
+        <div class="text-center p-2">
+          <a href="#" onclick="showResetPassword();" class="textbrow"><u>¿Se te olvidó tu contareña?</u></a>
+        </div>
+      </div>
+
+      <!-- RESET CONTRASEÑA -->
+      <div class="card-body d-none animated fadeIn" id="passwordReset">
+        <div class="text-center p-2">
+          <h5 class="card-title textbrow font-weight-bold ">Olvidé mi contraseña</h5>
+        </div>
+        <div class="md-form padding-margin-bottom-10">
+          <label for="resetUser">Escriba su nombre de usuario</label>
+          <input type="text" class="form-control" id="resetUser" placeholder=" " maxlength="30" pattern="^[A-Za-z0-9_]{1,30}$" onkeypress="return checkEnter(event, this.id)">
+        </div>
+        <div class="text-center p-2">
+          <button type="button" class="btn grey darken-4 less-padding btnConversor btn-block waves-effect waves-light" onclick="resetPassNow()" id="btnResetNow" tabindex="14">
+            Envíarme mi contraseña
+          </button>
+          <p></p>
+          <p class="blue-grey-text">¿Ya la recordaste?
+            <button type="button" class="btn grey darken-4 less-padding btnConversor waves-effect waves-light" onclick="showBackDataLogin()" tabindex="13" id="btnBackReset">
+              Ingresar
+            </button>
+          </p>
+        </div>
+      </div>
+
+      <!-- RESETEO DE CONTRASEÑA VALIDO -->
+      <div class="card-body d-none" id="passwordResetSuccess">
+        <div class="text-center">
+          <p class="blue-grey-text" id="passwordResetSuccesstext"></p>
+          <button type="button" class="btn grey darken-4 less-padding btnConversor waves-effect waves-light" onclick="showBackDataLogin(1)" id="btnBackReset" tabindex="13">
+            <span class="icon-arrow-left-solid line-height-1-5"></span>&nbsp;&nbsp;Volver
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="col-3"></div>
+</div>
