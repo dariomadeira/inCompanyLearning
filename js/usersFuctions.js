@@ -85,7 +85,7 @@ function loginApp() {
               $("#loadGeneralMensaje").html(generalMesages.loadMensaje);
               $("#generalWait").removeClass("d-none");
               if (data.is_admin == "1") {
-                $.get("pages/student/student.html", function (data) {
+                $.get("pages/admin/admin.html", function (data) {
                   // console.log(data);
                   $("#scrDivs").html(data);
                 });
