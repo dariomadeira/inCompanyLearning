@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 04-08-2022 a las 20:51:32
+-- Tiempo de generación: 24-08-2022 a las 03:05:58
 -- Versión del servidor: 8.0.18
 -- Versión de PHP: 5.6.39
 
@@ -121,6 +121,14 @@ CREATE TABLE `schedule` (
   `price` varchar(8) NOT NULL DEFAULT '0' COMMENT 'Precio'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `schedule`
+--
+
+INSERT INTO `schedule` (`ID`, `ID_users`, `date`, `hours`, `startHour`, `finishHour`, `ID_validations`, `price`) VALUES
+(1, 1, '18/03/22', '1', '16:00', '17:00', 8, '0'),
+(2, 1, '20/03/22', '1', '17:00', '18:00', 8, '0');
+
 -- --------------------------------------------------------
 
 --
@@ -148,8 +156,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `user`, `password`, `name`, `lastName`, `phone`, `email`, `isTeacher`, `isAdmin`, `ID_levels`, `ID_groups`, `ID_companies`, `timestamp`) VALUES
-(1, 'dariomadeira', 'lili11dhmG', 'Darío', 'Madeira', '2651417999', 'dariomadeira@gmail.com', 0, 0, 2, 1, 1, '01/08/2022 a las 19:14:22'),
-(2, 'pabloamendola', 'pablo', 'Pablo', 'Amendola', '', '', 0, 1, 1, 2, 2, NULL);
+(1, 'dariomadeira', 'lili11dhmG', 'Darío', 'Madeira', '2651417999', 'dariomadeira@gmail.com', 0, 0, 2, 1, 1, '23/08/2022 a las 21:08:13'),
+(2, 'pabloamendola', 'pablo', 'Pablo', 'Amendola', '', '', 0, 1, 1, 2, 2, '23/08/2022 a las 20:03:04');
 
 -- --------------------------------------------------------
 
@@ -173,7 +181,8 @@ INSERT INTO `validations` (`ID`, `name`) VALUES
 (4, 'Ausente sin aviso individual'),
 (5, 'Profesor ausente'),
 (6, 'Ausente sin aviso en el grupo'),
-(7, 'Cancelado con aviso en el grupo');
+(7, 'Cancelado con aviso en el grupo'),
+(8, 'activo');
 
 --
 -- Índices para tablas volcadas
@@ -259,7 +268,7 @@ ALTER TABLE `levels`
 -- AUTO_INCREMENT de la tabla `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID de tabla';
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID de tabla', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -271,7 +280,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `validations`
 --
 ALTER TABLE `validations`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID de tabla', AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID de tabla', AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
