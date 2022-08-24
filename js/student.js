@@ -14,7 +14,19 @@ function getStudentScheduler() {
         // FUNCION FINALIZAR AJAX CON DATA
         console.log(data);
         setTimeout(function() {
-        // que carajos hacemos con los resultados  
+        // que carajos hacemos con los resultados
+        
+        for(let i = 0; i < data.length; i = i + 1 ) {  
+          $.get("fragments/cards/studentCard.html", function (card) {
+            console.log( data[i].date)
+            card=card.replace("$fecha", data[i].date);
+            $("#resultDate").append(card);
+          })
+        };
+
+        $("#studentLoading").addClass("d-none");
+        $("#viewdata").removeClass("d-none");
+
         },timeToShow);
       }).fail(function() {
         // FUNCION DE ERROR
