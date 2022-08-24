@@ -20,6 +20,9 @@ function getStudentScheduler() {
           $.get("fragments/cards/studentCard.html", function (card) {
             console.log( data[i].date)
             card=card.replace("$fecha", data[i].date);
+            card=card.replace("$horas", data[i].hours);
+            card=card.replace("$horainicio", data[i].startHour);
+            card=card.replace("$horafin", data[i].finishHour);
             $("#resultDate").append(card);
           })
         };
